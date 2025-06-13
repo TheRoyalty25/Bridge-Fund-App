@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>ROSE</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BridgeFund App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Tab Content (Hidden until clicked) -->
+  <main>
+    <section id="home" class="tab-content">
+     <h1 class="deep-orange-heading">Welcome to BridgeFund App</h1>
+
+      <p class="about-text">
+        
+        <!-- Language Selection Toggle -->
+  <div class="settings-group">
+    <label for="languageToggle">Choose Language:</label>
+    <select id="languageToggle">
+      <option value="en">English</option>
+      <option value="sw">Swahili</option>
+    <option
+    value="fr">French</option>
+      </select>
+  </div>
+
+        
+    BridgeFund app is a transformative digital bridge that streams the complex process of aid distribution for both recipients and grantors with the aim of enhancing financial inclusion.
+
+It offers unparalleled convenience, speed, and accessibility, enabling users to apply for loans, receive funds, and manage repayments entirely through their mobile devices.
+        
+      </p>
+      <form id="loginForm">
+        <label>Name:<br><input type="text" id="username" required></label><br>
+        <label>Phone Number:<br><input type="tel" id="phone" required></label><br>
+        <label>Role:<br>
+          <select id="role">
+            <option value="beneficiary">Receive Funds</option>
+            <option value="grantor">Give Funds</option>
+            <option value="verifier">Verify</option>
+          </select>
+  
+          Enable Voice-Guided Instructions </label> <button onclick="speakText('Voice guidance activated')">🔊 Test Voice</button>
+  </div>
+
+  <!-- Consent Section -->
+  <div class="settings-group">
+    <h3 class="deep-orange-text">Consent & Agreement</h3>
+
+    <label><input type="checkbox" id="privacyPolicy" /> I accept the Privacy Policy</label><br />
+    <label><input type="checkbox" id="dataUsage" /> I understand the Data Usage Summary</label><br />
+    <label><input type="checkbox" id="dataCollection" /> I consent to Data Collection & Verification</label><br />
+    <label><input type="checkbox" id="dataRights" /> I acknowledge my Right to Edit/Delete my Data</label>
+  </div>
+
+  <!-- Accept Terms Summary -->
+  <div class="settings-group">
+    <p class="accept-summary">
+    </p>
+    <button onclick="speakText('By continuing, you agree to our terms and conditions including privacy policy and consent to data use.')">🔊 Play Summary</button>
+    <br><br>
+    <button class="submit-btn">Accept Terms & Continue</button>
+  </div>
+</section>
+
+    <section id="beneficiary" class="tab-content">
+      <h2 class="section-title">Beneficiary Application Form</h2>
+      <form id="beneficiaryForm">
+        <!-- Form fields same as before -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label>Name:<br><input type="text" required></label><br>
+          <label>Date of Birth:<br><input type="date" required></label><br>
+          <label>Gender:<br><select><option>Male</option><option>Female</option><option>Other</option></select></label><br>
+          <label>Contact Info:<br><select><option>Email</option><option>Phone</option></select></label><br>
+          <label>Location:<br><input type="text" placeholder="Your LGA or use location"></label>
+        </fieldset>
+        <fieldset>
+          <legend>Identity Verification</legend>
+          <label>ID Upload:<br><input type="file" accept="image/*" /></label><br>
+          <label>Facial Capture:<br><input type="file" accept="image/*" capture="user" /></label><br>
+          <label>BVN:<br><input type="text" maxlength="11" /></label>
+        </fieldset>
+        <fieldset>
+          <legend>Financial Need Assessment</legend>
+          <label>Income Level:<br>
+            <select>
+              <option>₦0 - ₦10,000</option>
+              <option>₦10,001 - ₦50,000</option>
+              <option>₦50,001 - ₦100,000</option>
+            </select>
+          </label><br>
+          <label>Number of Dependents:<br>
+            <input type="number" min="0" />
+          </label><br>
+          <label>Type of Support Needed:<br>
+            <select multiple>
+              <option>Health</option>
+              <option>Education</option>
+              <option>Startup</option>
+              <option>Emergency</option>
+              <option>Business Loan</option>
+              <option>Grant</option>
+            </select>
+          </label><br>
+          <label>Upload Evidence (Optional):<br>
+            <input type="file" />
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Alternative Verification</legend>
+          <label><input type="checkbox" /> Someone will vouch for me</label><br>
+          <label>Verifier Phone Number:<br><input type="tel" /></label><br>
+          <label>Community/Religious Reference:<br><input type="text" /></label>
+        </fieldset>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </section>
+
+    <section id="grantor" class="tab-content" role="region" aria-labelledby="grantor-tab">
+  <h2 class="form-section-heading">Grantor/Lender Application Form</h2>
+
+  <form id="grantorForm" class="form-container">
+    <!-- User Type -->
+    <fieldset>
+      <legend class="form-section-subheading">1. User Type</legend>
+      <label><input type="checkbox" name="userType" value="Individual"> Individual</label><br>
+      <label><input type="checkbox" name="userType" value="Corporate"> Corporate/Foundation</label><br>
+      <label><input type="checkbox" name="userType" value="NGO"> NGO/Development Partner</label><br>
+      <label><input type="checkbox" name="userType" value="Bank"> Bank</label><br>
+      <label><input type="checkbox" name="userType" value="Government"> Government Body</label>
+    </fieldset>
+
+    <!-- Verification -->
+    <fieldset>
+      <legend class="form-section-subheading">2. Verification</legend>
+      <label>Business Registration Document (CAC or equivalent):
+        <input type="file" name="businessRegistration" required>
+      </label><br>
+      <label>Tax ID (optional):
+        <input type="text" name="taxId">
+      </label><br>
+      <label>KYC + AML Compliance Screening:
+        <input type="file" name="kycAml">
+      </label><br>
+      <label>Proof of Funding Opportunity:
+        <input type="file" name="fundingProof">
+      </label>
+    </fieldset>
+
+    <!-- Funding Preferences -->
+    <fieldset>
+      <legend class="form-section-subheading">3. Funding Preferences</legend>
+      <label>Funds Type:
+        <select name="fundType" required>
+          <option value="">Select Type</option>
+          <option value="Grant">Grant</option>
+          <option value="Loan">Loan</option>
+        </select>
+      </label><br>
+      <label>Geographic Focus:
+        <input type="text" name="geoFocus" required>
+      </label><br>
+      <label>Category Focus:
+        <input type="text" name="categoryFocus" placeholder="e.g. health, youth, women">
+      </label><br>
+      <label>Minimum Amount per User:
+        <input type="number" name="minAmount" required>
+      </label><br>
+      <label>Maximum Amount per User:
+        <input type="number" name="maxAmount" required>
+      </label>
+    </fieldset>
+
+    <!-- Disbursement Preferences -->
+    <fieldset>
+      <legend class="form-section-subheading">4. Disbursement Preferences</legend>
+      <label>Frequency of Disbursement:
+        <input type="text" name="disbursementFrequency">
+      </label><br>
+      <label>Beneficiary Selection:
+        <select name="selectionType">
+          <option value="Auto">Auto</option>
+          <option value="Manual">Manual</option>
+        </select>
+      </label><br>
+      <label>Matchmaking Criteria:
+        <textarea name="matchCriteria" rows="3"></textarea>
+      </label>
+    </fieldset>
+
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</section>
+
+<section id="verifier" class="tab-content" role="region" aria-labelledby="verifier-tab">
+  <h2 class="form-section-heading">Verifier Application Form</h2>
+
+  <p class="role-definition">
+    <strong>Role Definition:</strong><br>
+    Verifiers vouch for grant or loan requests. If one verifies a request and it’s discovered to be false, both the requester and verifier will be penalized for fraud.
+  </p>
+
+  <form id="verifierForm" class="form-container">
+    <!-- Role Selection -->
+    <fieldset>
+      <legend class="form-section-subheading">1. Select Your Role</legend>
+      <label><input type="checkbox" name="role" value="Peer"> Peer</label><br>
+      <label><input type="checkbox" name="role" value="Community Leader"> Community Leader</label><br>
+      <label><input type="checkbox" name="role" value="NGO"> NGO</label><br>
+      <label><input type="checkbox" name="role" value="Religious Figure"> Religious Figure</label><br>
+      <label><input type="checkbox" name="role" value="Gov Agent"> Government Agent</label>
+    </fieldset>
+
+    <!-- Verification Method -->
+    <fieldset>
+      <legend class="form-section-subheading">2. Verification Method</legend>
+      <label>NIN or ID Number:
+        <input type="text" name="idNumber" required>
+      </label><br>
+      <label>Upload Letter of Authorization:
+        <input type="file" name="authorizationLetter" required>
+      </label>
+    </fieldset>
+
+    <!-- Dashboard Link -->
+    <fieldset>
+      <legend class="form-section-subheading">3. Request Management Dashboard</legend>
+      <p>
+        <a href="#" class="dashboard-link">Go to your Request Dashboard</a>
+        <br>
+        You can: View pending requests, Accept/Reject/Flag requests, and Add notes or evidence.
+      </p>
+    </fieldset>
+
+    <!-- Trust Score -->
+    <fieldset>
+      <legend class="form-section-subheading">4. Trust Score & Track Record</legend>
+      <p>Your trust score increases with verified records and successful validations.</p>
+      <button type="button" class="report-button">Report Suspicious Profile</button>
+    </fieldset>
+
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</section>
+
+<section id="dashboard" class="tab-content" role="region" aria-labelledby="dashboard-tab">
+  <h2 class="dashboard-heading">User Dashboard</h2>
+
+  <!-- Notifications Center -->
+  <section class="dashboard-section">
+    <h3 class="dashboard-subheading">🔔 Notifications Center</h3>
+    <ul class="dashboard-list">
+      <li>Series of applications and their status updates</li>
+      <li>New opportunity upload reminders</li>
+      <li>SMS & In-app alerts</li>
+    </ul>
+  </section>
+
+  <!-- Support Channels -->
+  <section class="dashboard-section">
+    <h3 class="dashboard-subheading">💬 Support Channels</h3>
+    <ul class="dashboard-list">
+      <li>
+        Live chat via 
+        <a href="https://wa.me/234XXXXXXXXXX" class="whatsapp-link" target="_blank">
+          WhatsApp <img src="whatsapp-icon.png" alt="WhatsApp" class="icon">
+        </a>
+      </li>
+      <li>FAQs with voice support</li>
+    </ul>
+  </section>
+
+  <!-- Admin ID Login -->
+  <section class="dashboard-section">
+    <label for="adminIdInput" class="admin-label">Insert your Admin ID to access Admin Dashboard:</label>
+    <input type="password" id="adminIdInput" class="admin-input" placeholder="Enter Admin ID" />
+    <button id="verifyAdminBtn" class="admin-button">Verify</button>
+    <p id="adminFeedback" class="admin-feedback"></p>
+  </section>
+
+  <!-- Admin Panel -->
+  <section id="admin-panel" class="dashboard-section admin-only" style="display: none;">
+    <h3 class="dashboard-subheading">🛠 Admin & Back Office Dashboard</h3>
+    <ul class="dashboard-list">
+      <li>Role & Identity Management</li>
+      <li>Fraud flagging & review</li>
+      <li>Grantor-approval system</li>
+      <li>Application rejection triggers with feedback</li>
+      <li>Insight dashboards (geographic demand, fund impact, etc.)</li>
+    </ul>
+  </section>
+
+  <!-- Security & Compliance -->
+  <section class="dashboard-section">
+    <h3 class="dashboard-subheading">🔐 Security & Compliance Reminder</h3>
+    <ul class="dashboard-list">
+      <li>Sanctions and PEP screening</li>
+      <li>Anti-money laundering (AML) checks</li>
+      <li>Secure data storage <strong>(bank-level encryption)</strong></li>
+      <li>Real-time fraud monitoring <strong>(pattern analysis)</strong></li>
+    </ul>
+  </section>
+</section>
+
+  <!-- five Bottom Tabs -->
+  <nav class="tab-bar bottom-nav" role="navigation" aria-label="Bottom Navigation">
+    <button class="tab-btn" data-tab="home">Home</button>
+    <button class="tab-btn" data-tab="beneficiary">Beneficiary</button>
+    <button class="tab-btn" data-tab="grantor">Grantor</button>
+    <button class="tab-btn" data-tab="verifier">Verifier</button>
+    <button class="tab-btn" data-tab="dashboard">Dashboard</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
